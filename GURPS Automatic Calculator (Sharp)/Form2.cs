@@ -9,15 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
+using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace GURPS_Automatic_Calculator__Sharp_
 {
-
     public partial class GACnewCharacter : Form
     {
        
-        public Stream s;
-        public object sw;
+        
+        bool saved = false;
+       
 
         public GACnewCharacter()
         {
@@ -27,71 +29,61 @@ namespace GURPS_Automatic_Calculator__Sharp_
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            mainMenu f1= new mainMenu();
+            mainMenu f1 = new mainMenu();
             f1.ShowDialog();
         }
-
+            
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
             characterSheet.FileName = txtCharacterName.Text;
-            characterSheet.Filter = "Text Files (*.txt|*.txt";
-            characterSheet.Title = "Save Your Sheet";
+            characterSheet.Filter = "Json files | .json";
+            characterSheet.Title = " Save Your Sheet ";
             characterSheet.ShowDialog();
 
 
-            if (characterSheet.ShowDialog() == DialogResult.OK) 
+            if (characterSheet.ShowDialog() == DialogResult.OK)
             {
-                string path = Path.GetFullPath(characterSheet.FileName);
-                TextWriter txt = new StreamWriter(path);
-                txt.Write("Character Name: " + txtCharacterName.Text);
-                txt.Write('\n');
-                txt.Write("User's name: " + txtuserName.Text);
-                txt.Write('\n' + "Primary Attributes");
-                txt.Write('\n');
-                txt.Write("ST: " + numST.Value);
-                txt.Write("\n");
-                txt.Write("DX: " + numDX.Value);
-                txt.Write("\n");
-                txt.Write("IQ: " + numIQ.Value);
-                txt.Write("\n");
-                txt.Write("HT: " + numHT.Value);
-                txt.Write("\n");
-                txt.Write("HP Total: " + numHPTotal.Value);
-                txt.Write("\n");
-                txt.Write("Fatigue Point Total: " + numHPTotal.Value);
-                txt.Write("\n");
-                txt.Write("Will: " + numWill.Value);
-                txt.Write("\n");
-                txt.Write("Fright Check: " + numFright.Value);
-                txt.Write("\n");
-                txt.Write("Perception: " + numPer.Value);
-                txt.Write("\n");
-                txt.Write("Vision: " + numVision.Value);
-                txt.Write("\n");
-                txt.Write("Hearing: " + numHearing.Value);
-                txt.Write("\n");
-                txt.Write("Taste: " + numTaste.Value);
-                txt.Write("\n");
-                txt.Write("Smell: " + numSmell.Value);
-                txt.Write("\n");
-                txt.Write("Touch: " + numTouch.Value);
-                txt.Write("\n");
-                txt.Write("Basic Speed: " + numBasicSpeed.Value);
-                txt.Write('\n');
-                txt.Write("Basic Move: " + numbasicMove.Value);
-                txt.Write("\n");
-                txt.Write("Made With The GAC!");
-                txt.Close();
                 
+                
+                
+                saved = true;
+                string path = Path.GetFullPath(characterSheet.FileName);
+                Dictionary<string, object> charactersheet = new Dictionary<string, object>()
+                {
+                    {"Character Name", txtCharacterName.Text},
+                    {"User's Name", txtuserName.Text },
+                    {"ST", numST.Value},
+                    {"DX", numDX.Value}
+
+                };
+                
+                string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(charactersheet);
+                File.WriteAllText(path, jsonString);
+               
+
             }
-            
- 
+
+
         }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
-            
+
+        }
+
+        private void btnCalc_Click(object sender, EventArgs e)
+        {
+            if (saved != false)
+            {
+                this.Hide();
+                Calculator calculator = new Calculator();
+                calculator.Show();
+            }
+            else
+            {
+                MessageBox.Show("Error!\n Save Something Fucker!");
+            }
         }
     }
 }

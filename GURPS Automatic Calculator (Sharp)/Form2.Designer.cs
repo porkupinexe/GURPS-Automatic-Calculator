@@ -75,6 +75,7 @@
             this.numWill = new System.Windows.Forms.NumericUpDown();
             this.lblWill = new System.Windows.Forms.Label();
             this.characterSheet = new System.Windows.Forms.SaveFileDialog();
+            this.btnCalc = new System.Windows.Forms.Button();
             this.grpNames.SuspendLayout();
             this.grpPrimaryAttributes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDX)).BeginInit();
@@ -507,11 +508,22 @@
             this.characterSheet.DefaultExt = "txt";
             this.characterSheet.InitialDirectory = "C:\\";
             // 
+            // btnCalc
+            // 
+            this.btnCalc.Location = new System.Drawing.Point(391, 165);
+            this.btnCalc.Name = "btnCalc";
+            this.btnCalc.Size = new System.Drawing.Size(75, 23);
+            this.btnCalc.TabIndex = 11;
+            this.btnCalc.Text = "Calculate!";
+            this.btnCalc.UseVisualStyleBackColor = true;
+            this.btnCalc.Click += new System.EventHandler(this.btnCalc_Click);
+            // 
             // GACnewCharacter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCalc);
             this.Controls.Add(this.grpSecondaryAttributes);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.grpPointPools);
@@ -603,5 +615,6 @@
         private System.Windows.Forms.Label lblBasicMove;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog characterSheet;
+        private System.Windows.Forms.Button btnCalc;
     }
 }
