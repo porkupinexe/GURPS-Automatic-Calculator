@@ -1,8 +1,8 @@
 # GURPS-Automatic-Calculator
 An Automatic Calculator made in WinForms + C# for use with GURPS.
-#################################################################
-CHANGLOG
-#################################################################
+################################################################# \n
+CHANGLOG \n
+################################################################# \n
 Version 0.1.0 12/10/22
 ~Proof of concept build
 ~Uses txt to capture and output file, cannot call data on new form.
