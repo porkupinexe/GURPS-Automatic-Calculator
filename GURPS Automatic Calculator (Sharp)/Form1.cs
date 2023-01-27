@@ -25,10 +25,21 @@ namespace GURPS_Automatic_Calculator__Sharp_
 
         private void characterCreate_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            GACnewCharacter f2 = new GACnewCharacter();
-            f2.ShowDialog();
-        }
+            if (characterDirectory.ShowDialog() == DialogResult.OK && characterDirectory.SelectedPath != null)
+            {
+
+                Properties.Settings.Default.currentCharDirctory = characterDirectory.SelectedPath;
+                this.Hide();
+                GACnewCharacter f2 = new GACnewCharacter();
+                f2.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Error!\nDid you pick a folder Fuckface?");
+            }
+                
+            }
+
 
         private void Exit_Click(object sender, EventArgs e)
         {

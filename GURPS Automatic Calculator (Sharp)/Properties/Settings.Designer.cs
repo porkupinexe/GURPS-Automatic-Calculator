@@ -34,5 +34,65 @@ namespace GURPS_Automatic_Calculator__Sharp_.Properties {
                 this["defaultSheet"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string currentCharDirctory {
+            get {
+                return ((string)(this["currentCharDirctory"]));
+            }
+            set {
+                this["currentCharDirctory"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string currentGunPath {
+            get {
+                return ((string)(this["currentGunPath"]));
+            }
+            set {
+                this["currentGunPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string equippedGun {
+            get {
+                return ((string)(this["equippedGun"]));
+            }
+            set {
+                this["equippedGun"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ammPath {
+            get {
+                return ((string)(this["ammPath"]));
+            }
+            set {
+                this["ammPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ammoUPath {
+            get {
+                return ((string)(this["ammoUPath"]));
+            }
+            set {
+                this["ammoUPath"] = value;
+            }
+        }
     }
 }

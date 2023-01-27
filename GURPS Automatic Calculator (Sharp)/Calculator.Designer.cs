@@ -28,71 +28,94 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblTest = new System.Windows.Forms.Label();
-            this.lblCharacterName = new System.Windows.Forms.Label();
-            this.lblST = new System.Windows.Forms.Label();
-            this.lblDX = new System.Windows.Forms.Label();
-            this.lblDXST = new System.Windows.Forms.Label();
+            this.rboxCharacterSheet = new System.Windows.Forms.RichTextBox();
+            this.cmbGunPicker = new System.Windows.Forms.ComboBox();
+            this.lblGunPicker = new System.Windows.Forms.Label();
+            this.rboxGunStats = new System.Windows.Forms.RichTextBox();
+            this.btnShoot = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblTest
+            // rboxCharacterSheet
             // 
-            this.lblTest.AutoSize = true;
-            this.lblTest.Location = new System.Drawing.Point(251, 119);
-            this.lblTest.Name = "lblTest";
-            this.lblTest.Size = new System.Drawing.Size(35, 13);
-            this.lblTest.TabIndex = 0;
-            this.lblTest.Text = "label1";
+            this.rboxCharacterSheet.Location = new System.Drawing.Point(12, 12);
+            this.rboxCharacterSheet.Name = "rboxCharacterSheet";
+            this.rboxCharacterSheet.ReadOnly = true;
+            this.rboxCharacterSheet.Size = new System.Drawing.Size(184, 271);
+            this.rboxCharacterSheet.TabIndex = 0;
+            this.rboxCharacterSheet.Text = "";
             // 
-            // lblCharacterName
+            // cmbGunPicker
             // 
-            this.lblCharacterName.AutoSize = true;
-            this.lblCharacterName.Location = new System.Drawing.Point(251, 96);
-            this.lblCharacterName.Name = "lblCharacterName";
-            this.lblCharacterName.Size = new System.Drawing.Size(35, 13);
-            this.lblCharacterName.TabIndex = 1;
-            this.lblCharacterName.Text = "label1";
+            this.cmbGunPicker.AllowDrop = true;
+            this.cmbGunPicker.FormattingEnabled = true;
+            this.cmbGunPicker.Location = new System.Drawing.Point(202, 31);
+            this.cmbGunPicker.Name = "cmbGunPicker";
+            this.cmbGunPicker.Size = new System.Drawing.Size(121, 21);
+            this.cmbGunPicker.TabIndex = 1;
+            this.cmbGunPicker.Text = "What to Shoot...";
+            this.cmbGunPicker.SelectedIndexChanged += new System.EventHandler(this.cmbGunPicker_SelectedIndexChanged);
             // 
-            // lblST
+            // lblGunPicker
             // 
-            this.lblST.AutoSize = true;
-            this.lblST.Location = new System.Drawing.Point(251, 143);
-            this.lblST.Name = "lblST";
-            this.lblST.Size = new System.Drawing.Size(35, 13);
-            this.lblST.TabIndex = 2;
-            this.lblST.Text = "label2";
+            this.lblGunPicker.AutoSize = true;
+            this.lblGunPicker.Location = new System.Drawing.Point(202, 12);
+            this.lblGunPicker.Name = "lblGunPicker";
+            this.lblGunPicker.Size = new System.Drawing.Size(78, 13);
+            this.lblGunPicker.TabIndex = 2;
+            this.lblGunPicker.Text = "Current Firearm";
             // 
-            // lblDX
+            // rboxGunStats
             // 
-            this.lblDX.AutoSize = true;
-            this.lblDX.Location = new System.Drawing.Point(251, 168);
-            this.lblDX.Name = "lblDX";
-            this.lblDX.Size = new System.Drawing.Size(35, 13);
-            this.lblDX.TabIndex = 3;
-            this.lblDX.Text = "label1";
+            this.rboxGunStats.Location = new System.Drawing.Point(202, 58);
+            this.rboxGunStats.Name = "rboxGunStats";
+            this.rboxGunStats.Size = new System.Drawing.Size(253, 225);
+            this.rboxGunStats.TabIndex = 3;
+            this.rboxGunStats.Text = "";
             // 
-            // lblDXST
+            // btnShoot
             // 
-            this.lblDXST.AutoSize = true;
-            this.lblDXST.Location = new System.Drawing.Point(254, 185);
-            this.lblDXST.Name = "lblDXST";
-            this.lblDXST.Size = new System.Drawing.Size(35, 13);
-            this.lblDXST.TabIndex = 4;
-            this.lblDXST.Text = "label1";
+            this.btnShoot.Location = new System.Drawing.Point(462, 58);
+            this.btnShoot.Name = "btnShoot";
+            this.btnShoot.Size = new System.Drawing.Size(326, 225);
+            this.btnShoot.TabIndex = 4;
+            this.btnShoot.Text = "Fucking Shoot Something!!!!!!!!!";
+            this.btnShoot.UseVisualStyleBackColor = true;
+            this.btnShoot.Click += new System.EventHandler(this.btnShoot_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(205, 290);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 5;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(205, 318);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown1.TabIndex = 6;
             // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblDXST);
-            this.Controls.Add(this.lblDX);
-            this.Controls.Add(this.lblST);
-            this.Controls.Add(this.lblCharacterName);
-            this.Controls.Add(this.lblTest);
+            this.ClientSize = new System.Drawing.Size(1288, 576);
+            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.btnShoot);
+            this.Controls.Add(this.rboxGunStats);
+            this.Controls.Add(this.lblGunPicker);
+            this.Controls.Add(this.cmbGunPicker);
+            this.Controls.Add(this.rboxCharacterSheet);
             this.Name = "Calculator";
             this.Text = "Calculator";
             this.Load += new System.EventHandler(this.Calculator_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -100,10 +123,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblTest;
-        private System.Windows.Forms.Label lblCharacterName;
-        private System.Windows.Forms.Label lblST;
-        private System.Windows.Forms.Label lblDX;
-        private System.Windows.Forms.Label lblDXST;
+        private System.Windows.Forms.RichTextBox rboxCharacterSheet;
+        private System.Windows.Forms.ComboBox cmbGunPicker;
+        private System.Windows.Forms.Label lblGunPicker;
+        private System.Windows.Forms.RichTextBox rboxGunStats;
+        private System.Windows.Forms.Button btnShoot;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

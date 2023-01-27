@@ -87,6 +87,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttackCalculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttackCalculator.Designer.cs">
+      <DependentUpon>AttackCalculator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Calculator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AttackCalculator.resx">
+      <DependentUpon>AttackCalculator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Calculator.resx">
       <DependentUpon>Calculator.cs</DependentUpon>
     </EmbeddedResource>

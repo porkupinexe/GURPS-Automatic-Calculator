@@ -19,17 +19,57 @@ namespace GURPS_Automatic_Calculator__Sharp_
         {
             InitializeComponent();
         }
+        
+        string gunPath = Properties.Settings.Default.currentGunPath;
 
         private void Calculator_Load(object sender, EventArgs e)
         {
-            string path = Properties.Settings.Default.defaultSheet;
-            Dictionary<string, string> dic = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText(path));
-            lblTest.Text = dic["User's Name"];
-            lblCharacterName.Text = dic["Character Name"];
-            lblST.Text = dic["ST"];
-            lblDX.Text = dic["DX"];
-            lblDXST.Text = lblST.Text + lblDX.Text;
+            string[] ammoEntries = Directory.GetFiles(Properties.Settings.Default.ammPath);
+            foreach (string ammoEntry in ammoEntries)
+            {
 
+            }
+            string[] fileEntries = Directory.GetFiles(gunPath);
+            foreach (string fileName in fileEntries)
+            {
+                cmbGunPicker.Items.Add(Path.GetFileNameWithoutExtension(fileName));
+            }
+            
+            string path = Properties.Settings.Default.defaultSheet;
+            Dictionary<string, object> dic = JsonSerializer.Deserialize<Dictionary<string, object>>(File.ReadAllText(path));
+            foreach (KeyValuePair<string, object> kvp in dic)
+            {
+                rboxCharacterSheet.AppendText(Environment.NewLine + $"{kvp.Key}: {kvp.Value}");
+
+            }
+
+
+
+        }
+
+        private void cmbGunPicker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.equippedGun = cmbGunPicker.Text;
+            string fileName = cmbGunPicker.SelectedItem.ToString();
+            string filePath = Path.Combine(gunPath, fileName + ".json");
+            Dictionary<string, object> dic = JsonSerializer.Deserialize<Dictionary<string, object>>(File.ReadAllText(filePath));
+            foreach (KeyValuePair<string, object> kvp in dic)
+            {
+                rboxGunStats.AppendText(Environment.NewLine + $"{kvp.Key}: {kvp.Value}");
+            }
+        }
+
+        private void btnShoot_Click(object sender, EventArgs e)
+        {
+            if(cmbGunPicker.SelectedIndex != -1) 
+            {
+                AttackCalculator attackCalculator = new AttackCalculator();
+                attackCalculator.Show();
+            }
+            else
+            {
+                MessageBox.Show("Error!\n What are you gonna shoot with numbskull?");
+            }
         }
     }
 }

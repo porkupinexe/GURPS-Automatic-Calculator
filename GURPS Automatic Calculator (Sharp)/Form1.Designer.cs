@@ -33,6 +33,7 @@
             this.characterCreate = new System.Windows.Forms.Button();
             this.addCharacter = new System.Windows.Forms.Button();
             this.Exit = new System.Windows.Forms.Button();
+            this.characterDirectory = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
             // label1
@@ -74,6 +75,10 @@
             this.Exit.UseVisualStyleBackColor = true;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
+            // characterDirectory
+            // 
+            this.characterDirectory.Description = "Make a new folder to store your character sheet";
+            // 
             // mainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -100,6 +105,7 @@
         private System.Windows.Forms.Button characterCreate;
         private System.Windows.Forms.Button addCharacter;
         private System.Windows.Forms.Button Exit;
+        private System.Windows.Forms.FolderBrowserDialog characterDirectory;
     }
 }
 
